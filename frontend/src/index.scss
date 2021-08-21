@@ -13,6 +13,14 @@ body {
   -moz-oxs-font-smoothing: grayscale;
 }
 
+.grid-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+
 header {
   background-color: $meliColor;
   font-size: 18px;
@@ -44,6 +52,12 @@ header {
   }
 }
 
+/* Main */
+
+main {
+  flex: auto;
+  background-color: $lightGrayColor;
+}
 /* Search */
 
 .search {
@@ -51,6 +65,7 @@ header {
     padding: 10px;
     border: none;
     margin: 5px 5px 5x 0px;
+    background-color: $lightGrayColor;
     img {
       height: 10px;
       width: auto;
