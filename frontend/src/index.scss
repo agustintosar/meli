@@ -1,0 +1,65 @@
+$blackColor: #333333;
+$grayColor: #999999;
+$lightGrayColor: #eeeeee;
+$meliColor: #ffe600;
+
+/* Common */
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-oxs-font-smoothing: grayscale;
+}
+
+header {
+  background-color: $meliColor;
+  font-size: 18px;
+}
+
+.row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  a {
+    color: #ffffff;
+    padding: 10px;
+  }
+}
+
+.header-container {
+  padding: 5px;
+  img {
+    height: 32px;
+    width: auto;
+  }
+}
+
+/* Search */
+
+.search {
+  button {
+    padding: 10px;
+    border: none;
+    margin: 5px 5px 5x 0px;
+    img {
+      height: 10px;
+      width: auto;
+    }
+  }
+  input {
+    padding: 10px;
+    border: none;
+    width: 600px;
+    margin: 5px 0px 5px 5px;
+  }
+}
