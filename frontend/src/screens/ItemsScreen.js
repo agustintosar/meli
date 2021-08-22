@@ -1,23 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import { BASE_URL } from '../constants';
+
 import Item from '../components/Item'
 
-export default function searchScreen() {
-    const items = [{
-        id: '1234',
-        name: 'Product name',
-        price: 100.99
-    },
-    {
-        id: '12345',
-        name: 'Product name',
-        price: 98.99
-    }];
+export default function ItemsScreen() {
+    const [items, setItems] = useState([]);
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        const fetchData = async  () => {
+            try {
+                const { data } = await axios.get(`${BASE_URL}/items`);
+                setItems(data);
+            } catch (err) {
+                setError(err.message);
+            }
+        }
+
+        fetchData();
+    }, []);
 
     return (
         <div className="row center items">
-            {items.map((item) => (
+        {
+            error ? 
+            <p>error</p> : 
+            items.map((item) => (
                 <Item key={item.id} item={item}></Item>
-            ))}
+            ))
+        }
         </div>
     )
 }
