@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom';
+
 export default function navBar() {
     let search = '';
 
@@ -14,11 +16,11 @@ export default function navBar() {
     }
     
     return (
-        <div className="row">
+        <div className="row center">
             <div>
-              <a href="index.html">
+              <Link to="/">
                 <img src="../Logo_ML.png" alt="Mercado Libre"></img>
-              </a>
+              </Link>
             </div>
             <div>
               <form className="search" onSubmit={submitHandler}>

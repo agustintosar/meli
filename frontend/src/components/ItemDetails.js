@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function searchScreen() {
+export default function ItemDetails() {
     return (
         <div>
             

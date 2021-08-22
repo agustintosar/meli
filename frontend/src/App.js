@@ -1,8 +1,9 @@
 
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import HomeScreen from './screens/HomeScreen';
-import SearchScreen from './screens/SearchScreen';
+import ItemDetailsScreen from './screens/ItemDetailsScreen';
+import ItemsScreen from './screens/ItemsScreen';
 
 import SearchBar from './components/SearchBar';
 
@@ -24,8 +25,9 @@ function App() {
             <Route component={SearchBar}></Route>
           </header>
           <main className="main-container">
+            <Route path="/items/:id" component={ItemDetailsScreen}></Route>
+            <Route path="/items/" component={ItemsScreen} exact></Route>
             <Route path="/" component={HomeScreen} exact></Route>
-            <Route path="/search/" component={SearchScreen} exact></Route>
           </main>
           <footer>
 
