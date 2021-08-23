@@ -9,16 +9,6 @@ import SearchBar from './components/SearchBar';
 
 function App() {
   return (
-    // <html>
-    //   <head>
-    //     <link rel="stylesheet" href="index.css" />
-    //     <title>Challenge Mercado Libre</title>
-    //   </head>
-    //   <body>
-
-    //   </body>
-    // </html>
-
     <BrowserRouter>
         <div className="grid-container">
           <header className="header-container">
@@ -26,7 +16,7 @@ function App() {
           </header>
           <main className="main-container">
             <Route path="/items/:id" component={ItemDetailsScreen}></Route>
-            <Route path="/items/" component={ItemsScreen} exact></Route>
+            <Route path="/items?search=:q" component={ItemsScreen}></Route>
             <Route path="/" component={HomeScreen} exact></Route>
           </main>
           <footer>

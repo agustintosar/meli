@@ -8,7 +8,7 @@ export default function Item(props) {
     return (
         <div className="row card">
             <Link to={`/items/${item.id}`}>
-            <img src="../Logo_ML@2x.png.png" alt={item.name} className="medium pointer"/>
+                <img src="../Logo_ML@2x.png.png" alt={item.name} className="medium pointer"/>
             </Link>
             <div className="card-body">
                 <h2 className="price">${item.price}</h2>

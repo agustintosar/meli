@@ -1,18 +1,19 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
-export default function navBar() {
+export default function SearchBar() {
+    let history = useHistory();
     let search = '';
 
-    // const [search, setSearch] = useState('');
     const setSearch = (e) => {
       search = e;
-      console.log(search);
     }
   
     const submitHandler = (e) => {
       e.preventDefault();
+      console.log(search);
+      history.push(`/items?search=${search}`);
     }
     
     return (
