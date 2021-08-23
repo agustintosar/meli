@@ -1,34 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
-import { BASE_URL } from '../constants';
+import React, { useEffect } from 'react';
+import  { useDispatch, useSelector } from 'react-redux';
+import { listItems } from '../actions/itemActions';
 
 import Item from '../components/Item'
 
 export default function ItemsScreen() {
-    const [items, setItems] = useState([]);
-    const [error, setError] = useState(false);
+    const dispatch = useDispatch();
+    const itemList = useSelector(state => state.itemList);
+    const { loading, error, items } = itemList;
 
     useEffect(() => {
-        const fetchData = async  () => {
-            try {
-                const { data } = await axios.get(`${BASE_URL}/items`);
-                setItems(data);
-            } catch (err) {
-                setError(err.message);
-            }
-        }
-
-        fetchData();
+        dispatch(listItems());
     }, []);
 
     return (
         <div className="row center items">
         {
-            error ? 
-            <p>error</p> : 
-            items.map((item) => (
-                <Item key={item.id} item={item}></Item>
-            ))
+            loading ? (
+                <p>cargando...</p>
+            ) : error ? ( 
+                <p>{error}</p>
+            ) : (
+                items.map((item) => (
+                    <Item key={item.id} item={item}></Item>
+                )))
         }
         </div>
     )
