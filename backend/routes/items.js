@@ -3,33 +3,30 @@ import axios from 'axios';
 
 const items = express.Router();
 
-items.get('/search', async (req, res) => {
-    // const q = req.query.q;
-    const q = 'Motorola';
+items.get('/', async (req, res) => {
+    const q = req.query.q;
     const url = `https://api.mercadolibre.com/sites/MLA/search?q=${q}`;
     const encodedURL = encodeURI(url);
   
     try {
-        const resItems = await axios.get(encodedURL);
-
-        let items = resItems.results ? resItems.results : [];
-
-        items = items.map((item) => ({
+        const { data } = await axios.get(encodedURL);
+                
+        const items = data.results.map((item) => ({
             "id": item.id,
             "title": item.title,
             "price": {
-                "currency": item.prices[0].currency_id, 
-                "amount": item.prices[0].amount, 
+                "currency": item.currency_id, 
+                "amount": item.price, 
                 "decimals": 2 // find decimals
             },
             'picture': item.thumbnail,
             'condition': item.condition,
             'free_shipping': item.shipping.free_shipping
         }));
-
+        
         const categories = [];
 
-        const data = {
+        const payload = {
             'author': {
                 'name': 'name', // find name
                 'lastname': 'lastname' // find lastname
@@ -38,15 +35,14 @@ items.get('/search', async (req, res) => {
             'items': items
         };
         
-        res.send(data);
+        res.send(payload);
     } catch (error) {
       res.send(error);
     }
 });
   
 items.get('/:id', async (req, res) => {
-    // const id = req.params.id;
-    const id = 'MLA929295024';
+    const id = req.params.id;
     const url = `https://api.mercadolibre.com/items/${id}`;
     const encodedURL = encodeURI(url);
   
@@ -57,7 +53,7 @@ items.get('/:id', async (req, res) => {
         const { id, title, currency_id, price, pictures, condition, shipping, sold_quantity } = respItem.data;
         const { plain_text } = respDescription.data;
 
-        const data = {
+        const payload = {
             'author': {
                 'name': 'name', // find name 
                 'lastname': 'lastname' // find lastname
@@ -78,7 +74,7 @@ items.get('/:id', async (req, res) => {
             } 
         } 
 
-        res.send(data);
+        res.send(payload);
     } catch (error) {
       res.send(error);
     }

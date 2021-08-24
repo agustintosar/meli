@@ -14,7 +14,7 @@ export default function ItemDetailsScreen(props) {
 
     useEffect(() => {
         dispatch(detailsItem(productId));
-    }, []);
+    }, [dispatch, productId]);
 
     return (
         <div className="row center details">

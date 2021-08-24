@@ -15,8 +15,8 @@ function App() {
             <Route component={SearchBar}></Route>
           </header>
           <main className="main-container">
-            <Route path="/items/:id" component={ItemDetailsScreen}></Route>
-            <Route path="/items?search=:q" component={ItemsScreen}></Route>
+            <Route path="/items/:id" component={ItemDetailsScreen} exact></Route>
+            <Route path="/items" component={ItemsScreen} exact></Route>
             <Route path="/" component={HomeScreen} exact></Route>
           </main>
           <footer>

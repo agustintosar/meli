@@ -12,8 +12,11 @@ export default function SearchBar() {
   
     const submitHandler = (e) => {
       e.preventDefault();
-      console.log(search);
-      history.push(`/items?search=${search}`);
+      history.push({
+        pathname: '/items',
+        search: `?search=${search}`,
+        state: { q: search }
+      });
     }
     
     return (

@@ -5,14 +5,14 @@ import { listItems } from '../actions/itemActions';
 import Item from '../components/Item'
 
 export default function ItemsScreen(props) {
-    const q = props.match.params.q;
+    const { q } = props.location.state;
     const dispatch = useDispatch();
     const itemList = useSelector(state => state.itemList);
     const { loading, error, items } = itemList;
 
     useEffect(() => {
         dispatch(listItems(q));
-    }, []);
+    }, [dispatch, q]);
 
     return (
         <div className="row center items">
@@ -22,9 +22,21 @@ export default function ItemsScreen(props) {
             ) : error ? (
                 <p> {error} </p>
             ) : (
-                items.map((item) => (
-                    <Item key={item.id} item={item}></Item>
-                )))
+                <> 
+                    { items?.map((item) => (
+                        <Item
+                            key={item.id}
+                            id={item.id}
+                            picture={item.picture}
+                            title={item.title}
+                            priceAmount={item.price.amount}
+                            priceCurrency={item.price.currency}
+                            priceDecimals={item.price.decimals}
+                        >
+                        </Item>
+                    ))}
+                </>
+              )
         }
         </div>
     )

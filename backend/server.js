@@ -13,6 +13,7 @@ app.use(cors({
     origin: ['http://localhost:3000']
 }));
 
+
 app.use('/api/items', items);
 
 app.listen(port, () => {
