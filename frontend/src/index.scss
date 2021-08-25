@@ -10,8 +10,6 @@ body {
   font-family: "Lato", sans-serif;
   font-size: 1.6rem;
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-oxs-font-smoothing: grayscale;
 }
 
 #root {
@@ -25,13 +23,13 @@ body {
 }
 
 h1 {
-  font-size: 1.8rem;
-  padding: 1rem 0;
+  padding: 0;
+  margin: 0;
 }
 
 h2 {
-  font-size: 1.6rem;
-  padding: 1rem 0;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -63,6 +61,10 @@ button.block {
 
 .center {
   justify-content: center;
+}
+
+.top {
+  align-items: flex-start;
 }
 
 .pointer {
@@ -127,35 +129,60 @@ main {
   margin: 1rem;
 
   .card {
-    border: 0.1rem $lightGrayColor solid;
     background-color: white;
     margin: 0 1rem;
     width: 80%;
 
-    :last-child {
-      border-right: none;
+    .icon {
+      margin: 0.5rem;
+      width: auto;
+      height: 20px;
     }
 
     .medium {
       margin: 0.5rem;
-      max-width: 50rem;
-      height: auto;
+      max-width: 180px;
+      height: 180px;
+      display: flex;
+      margin: auto;
     }
 
-    .card-body {
-      padding: 1rem;
+    .body {
+      width: 100%;
+      margin: 0 16px;
+      padding: 16px 0;
+      justify-content: space-between;
+      border-bottom: 0.1rem $lightGrayColor solid;
 
-      * {
-        margin-bottom: 0.5rem;
+      :last-child {
+        border-right: none;
       }
 
-      .price {
-        font-size: 1.5rem;
-        font-weight: 400;
-        color: $blackColor;
+      .image {
+        width: 20%;
       }
 
-      .title {
+      .content {
+        width: 60%;
+
+        .price {
+          font-size: 24px;
+          font-weight: 400;
+          color: $blackColor;
+          margin-top: 16px;
+          margin-bottom: 32px;
+        }
+
+        .title {
+          font-size: 18px;
+          font-weight: 400;
+          color: $blackColor;
+        }
+      }
+
+      .state {
+        width: 20%;
+        font-size: 12px;
         font-weight: 400;
         color: $blackColor;
       }
@@ -181,10 +208,6 @@ main {
     align-items: center;
     width: 100%;
     justify-content: space-between;
-  }
-
-  .top {
-    align-items: flex-start;
   }
 
   .col-1 {

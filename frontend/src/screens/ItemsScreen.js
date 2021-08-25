@@ -29,8 +29,8 @@ export default function ItemsScreen(props) {
                         picture={item.picture}
                         title={item.title}
                         priceAmount={item.price.amount}
-                        priceCurrency={item.price.currency}
-                        priceDecimals={item.price.decimals}
+                        freeShipping={item.free_shipping}
+                        state={item.state}
                     >
                     </Item>
                 ))
