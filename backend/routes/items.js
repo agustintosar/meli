@@ -7,11 +7,12 @@ items.get('/', async (req, res) => {
     const q = req.query.q;
     const url = `https://api.mercadolibre.com/sites/MLA/search?q=${q}`;
     const encodedURL = encodeURI(url);
+    const itemsLength = 4;
   
     try {
         const { data } = await axios.get(encodedURL);
-                
-        const items = data.results.map((item) => ({
+
+        const items = data.results.slice(0, itemsLength).map((item) => ({
             "id": item.id,
             "title": item.title,
             "price": {
@@ -21,7 +22,8 @@ items.get('/', async (req, res) => {
             },
             'picture': item.thumbnail,
             'condition': item.condition,
-            'free_shipping': item.shipping.free_shipping
+            'free_shipping': item.shipping.free_shipping,
+            'state': item.address.state_name
         }));
         
         const categories = [];
