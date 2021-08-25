@@ -26,8 +26,8 @@ items.get('/', async (req, res) => {
             'state': item.address.state_name
         }));
         
-        const categoriesValues = data.filters.find(filter => filter.id === 'category').values;
-        const categories = categoriesValues ? categoriesValues.map((category) => ({
+        let categories = data.filters.length ? data.filters.find(filter => filter.id === 'category') : [];
+        categories = categories.length ? categories.values.map((category) => ({
             id: category.id,
             name: category.name
         })) : [];
