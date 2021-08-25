@@ -7,16 +7,18 @@ export default function ItemDetails(props) {
         <div className="row card">
             <div className="container top">
                 <div className="col-2">
-                    <img src={picture} alt={title} className="large"></img>
+                    <div className="image">
+                        <img src={picture} alt={title} className="large"></img>
+                    </div>
                     <div className="description">
                         <p className="title">Descripcion del producto</p>
                         <h2 className="text">{description}</h2>
                     </div>
                 </div>
                 <div className="col-1">
-                    <p className="status">{`${condition} - ${sold_quantity}`}</p>
+                    <p className="status">{`${condition} - ${sold_quantity} vendidos`}</p>
                     <h1 className="title">{title}</h1>
-                    <p className="price">${price?.amount}</p>
+                    <p className="price">$ {price?.amount.toLocaleString()}</p>
                     <button className="primary block">Comprar</button>
                 </div>
             </div>

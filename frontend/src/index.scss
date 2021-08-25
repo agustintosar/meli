@@ -205,18 +205,18 @@ main {
 
   .container {
     display: flex;
-    align-items: center;
     width: 100%;
     justify-content: space-between;
   }
 
   .col-1 {
     flex: 1 1 33rem;
-    margin: 1.5rem;
+    margin: 32px;
 
     .status {
       font-size: 14px;
-      margin: 32px 0 16px 0;
+      margin-top: 0px;
+      margin-bottom: 16px;
       color: $blackColor;
     }
 
@@ -225,6 +225,7 @@ main {
       margin: 0 0 32px 0;
       padding: 0;
       color: $blackColor;
+      font-weight: 400;
     }
 
     .price {
@@ -232,6 +233,7 @@ main {
       margin: 0 0 32px 0;
       padding: 0;
       color: $blackColor;
+      font-weight: 400;
     }
   }
 
@@ -240,9 +242,15 @@ main {
     margin: 4rem;
     color: $blackColor;
 
-    .large {
+    .image {
       width: 680px;
-      height: auto;
+
+      .large {
+        width: 300px;
+        height: auto;
+        display: flex;
+        margin: auto;
+      }
     }
 
     .description {
