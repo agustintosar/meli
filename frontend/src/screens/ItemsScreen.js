@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import  { useDispatch, useSelector } from 'react-redux';
-import { listItems } from '../actions/itemActions';
 
+import { listItems } from '../actions/itemActions';
 import Item from '../components/Item'
 
 export default function ItemsScreen(props) {
@@ -22,21 +22,19 @@ export default function ItemsScreen(props) {
             ) : error ? (
                 <p> {error} </p>
             ) : (
-                <> 
-                    { items?.map((item) => (
-                        <Item
-                            key={item.id}
-                            id={item.id}
-                            picture={item.picture}
-                            title={item.title}
-                            priceAmount={item.price.amount}
-                            priceCurrency={item.price.currency}
-                            priceDecimals={item.price.decimals}
-                        >
-                        </Item>
-                    ))}
-                </>
-              )
+                items?.map((item) => (
+                    <Item
+                        key={item.id}
+                        id={item.id}
+                        picture={item.picture}
+                        title={item.title}
+                        priceAmount={item.price.amount}
+                        priceCurrency={item.price.currency}
+                        priceDecimals={item.price.decimals}
+                    >
+                    </Item>
+                ))
+            )
         }
         </div>
     )

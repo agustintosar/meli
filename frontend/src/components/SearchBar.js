@@ -29,7 +29,14 @@ export default function SearchBar() {
             <div>
               <form className="search" onSubmit={submitHandler}>
                 <div className="row">
-                  <input className="primary" type="text" name="q" id="q" onChange={(e) => setSearch(e.target.value)} placeholder="Nunca dejes de buscar"></input>
+                  <input 
+                    className="primary" 
+                    type="text" 
+                    name="q" 
+                    id="q" 
+                    onChange={(e) => setSearch(e.target.value)} 
+                    placeholder="Nunca dejes de buscar">
+                  </input>
                   <button type="submit">
                     <img src="../ic_Search.png" alt="search"></img>
                   </button>

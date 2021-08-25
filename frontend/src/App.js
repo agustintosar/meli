@@ -4,7 +4,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import ItemDetailsScreen from './screens/ItemDetailsScreen';
 import ItemsScreen from './screens/ItemsScreen';
-
 import SearchBar from './components/SearchBar';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
             <Route path="/" component={HomeScreen} exact></Route>
           </main>
           <footer>
-
           </footer>
         </div>
     </BrowserRouter>
