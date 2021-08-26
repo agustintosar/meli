@@ -4,7 +4,14 @@ $lightGrayColor: #eeeeee;
 $meliColor: #ffe600;
 $blueColor: #3483fa;
 
+$breakpoint-tablet: 768px;
+
 /* Common */
+
+html,
+body {
+  overflow-x: hidden;
+}
 
 body {
   font-family: "Lato", sans-serif;
@@ -14,6 +21,7 @@ body {
 
 #root {
   height: 100%;
+  width: 100%;
 }
 
 .grid-container {
@@ -104,6 +112,13 @@ main {
 /* Search */
 
 .search {
+  .logo {
+    @media (max-width: $breakpoint-tablet) {
+      display: block;
+      width: 100%;
+    }
+  }
+
   button {
     padding: 10px;
     border: none;
@@ -120,6 +135,15 @@ main {
     border: none;
     width: 600px;
     margin: 5px 0px 5px 5px;
+
+    @media (max-width: $breakpoint-tablet) {
+      width: auto;
+    }
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    display: block;
+    width: 100%;
   }
 }
 
@@ -160,6 +184,10 @@ main {
 
       .image {
         width: 20%;
+
+        @media (max-width: $breakpoint-tablet) {
+          width: 100%;
+        }
       }
 
       .content {
@@ -178,6 +206,10 @@ main {
           font-weight: 400;
           color: $blackColor;
         }
+
+        @media (max-width: $breakpoint-tablet) {
+          width: 100%;
+        }
       }
 
       .state {
@@ -185,6 +217,10 @@ main {
         font-size: 12px;
         font-weight: 400;
         color: $blackColor;
+
+        @media (max-width: $breakpoint-tablet) {
+          width: 100%;
+        }
       }
     }
   }
@@ -201,12 +237,20 @@ main {
     margin: 0 1rem;
     padding: 0.1rem;
     width: 80%;
+
+    @media (max-width: $breakpoint-tablet) {
+      width: auto;
+    }
   }
 
   .container {
     display: flex;
     width: 100%;
     justify-content: space-between;
+
+    @media (max-width: $breakpoint-tablet) {
+      display: block;
+    }
   }
 
   .col-1 {
@@ -235,6 +279,11 @@ main {
       color: $blackColor;
       font-weight: 400;
     }
+
+    @media (max-width: $breakpoint-tablet) {
+      flex: auto;
+      margin: 0.5rem;
+    }
   }
 
   .col-2 {
@@ -250,6 +299,16 @@ main {
         height: auto;
         display: flex;
         margin: auto;
+
+        @media (max-width: $breakpoint-tablet) {
+          display: block;
+          width: 200px;
+        }
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        display: block;
+        width: 300px;
       }
     }
 
@@ -264,6 +323,11 @@ main {
         font-size: 16px;
         margin: 0 0 32px 32px;
       }
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      flex: auto;
+      margin: 0.5rem;
     }
   }
 }

@@ -21,7 +21,7 @@ export default function SearchBar() {
     
     return (
         <div className="row center">
-            <div>
+            <div className="logo">
               <Link to="/">
                 <img src="../Logo_ML.png" alt="Mercado Libre"></img>
               </Link>
